@@ -25,9 +25,7 @@ trait MongoUtils {
   case class ID(_id: String)
   protected def toDBObj(any: Any): DBObject = {
     val json = Extraction.decompose(any)
-    val id = Extraction.extract[String](json \ "id")
-    val newJson = json merge (Extraction.decompose(ID(id)))
-    val parsed = JObjectParser.parse(newJson)
+    val parsed = JObjectParser.parse(json)
     parsed
   }
 }

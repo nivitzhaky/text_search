@@ -19,7 +19,7 @@ object TableName {
 
 }
 
-case class Data(id: String, text: String)
+case class Data(text: String)
 case class SearchRes(text: String, weight: Int)
 
 class DataMongoPersistence(dbName: String) extends MongoUtils {
@@ -37,7 +37,7 @@ class DataMongoPersistence(dbName: String) extends MongoUtils {
   }
 
   def searchForText(txt: String): List[Data] = db(data).find(MDB("$text" -> MDB("$search" -> txt))).toList
-    .map(x => dbObjTo[Data](x))
+    .map(x => dbObjTo[Data](x)).groupBy(_.text).map(x => x._2.head).toList
 
   def createIndexes() = {
     db(data).createIndex(MDB("text" -> "text"))

@@ -35,7 +35,7 @@ class SimilarTextController @Inject() (system: ActorSystem) extends Controller w
   def addData = Action { request =>
     println(request.body.asText.get)
     MongoObject.memData += request.body.asText.get
-    mongoPersistence.addData(Data(UUID.randomUUID().toString, request.body.asText.get))
+    mongoPersistence.addData(Data(request.body.asText.get))
     Ok(Extraction.decompose("OK")).withHeaders(headers: _*)
 
   }
