@@ -5,15 +5,15 @@ comparing 3 methods of checking for similar text:
 3. mongo text: use mongo text search to get back database text similar to search text
 
 
-#API
-add data:
-curl -d "the cow says moo" -H "Content-Type: text/plain" -X POST http://52.15.136.250:9021/index
-curl -d "the cat and the hat" -H "Content-Type: text/plain" -X POST http://52.15.136.250:9021/index
-curl -d " the dish ran away with the spoon" -H "Content-Type: text/plain"  -X POST http://52.15.136.250:9021/index
+#API <br>
+add data:<br>
+curl -d "the cow says moo" -H "Content-Type: text/plain" -X POST http://52.15.136.250:9021/index  <br>
+curl -d "the cat and the hat" -H "Content-Type: text/plain" -X POST http://52.15.136.250:9021/index  <br>
+curl -d " the dish ran away with the spoon" -H "Content-Type: text/plain"  -X POST http://52.15.136.250:9021/index  <br>
 
 get results:
 
-curl -d " a cat ran away" -H "Content-Type: text/plain" -X POST http://52.15.136.250:9021/simple_search
-curl -d " a cat ran away" -H "Content-Type: text/plain" -X POST http://52.15.136.250:9021/levenshtein_search
-curl -d " a cat ran away" -H "Content-Type: text/plain" -X POST http://52.15.136.250:9021/mongo_search
+curl -d " a cat ran away" -H "Content-Type: text/plain" -X POST http://52.15.136.250:9021/simple_search  <br>
+curl -d " a cat ran away" -H "Content-Type: text/plain" -X POST http://52.15.136.250:9021/levenshtein_search  <br>
+curl -d " a cat ran away" -H "Content-Type: text/plain" -X POST http://52.15.136.250:9021/mongo_search   <br>
 
